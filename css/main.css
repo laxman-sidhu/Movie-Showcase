@@ -1,0 +1,333 @@
+/* ==================================================
+  MAIN STYLES - Dark Cinematic Theme
+  - Core variables and global styles used across pages
+  - Keep desktop layout identical; mobile tweaks at end
+  ================================================== */
+
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #1e1b4b;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-gold: #fbbf24;
+  --accent-purple: #a78bfa;
+  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --shadow-soft: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: 
+    radial-gradient(ellipse at top, rgba(120, 119, 198, 0.15), transparent 60%),
+    linear-gradient(180deg, #0f172a 0%, #1e1b4b 40%, #0f172a 100%);
+  /* background-attachment: fixed; */
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* NAVBAR - Glass Dark */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(20px);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-inner {
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  /* max-width: 1200px; */
+}
+
+.nav-brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-gradient);
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-active {
+  background: rgba(102, 126, 234, 0.15);
+  color: var(--accent-purple);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+/* Hero section and buttons moved to home.css (homepage-specific) */
+
+/* Section title and category grid/cards moved to home.css (homepage-specific) */
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 40px;
+  padding: 26px 24px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.footer-block {
+  min-width: 0;
+  gap: 30px;
+}
+
+.footer-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.footer-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.footer-links {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-link-ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.18);
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.footer-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--text-primary);
+}
+
+.footer-credit {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-sep {
+  opacity: 0.7;
+}
+
+.footer--home .footer-inner {
+  text-align: center;
+}
+
+.footer--home .footer-credit {
+  justify-content: center;
+}
+
+/* ABOUT footer: inline links (no stacked cards) */
+.footer--about .footer-block {
+  text-align: center;
+}
+
+.footer-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 12px;
+  color: var(--text-secondary);
+}
+
+.footer-inline-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.footer-inline-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(167, 139, 250, 0.55);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-link {
+    width: 100%;
+  }
+}
+
+
+
+/* ==================================================
+   RESPONSIVE OVERRIDES - Navbar & Footer
+   ================================================== */
+
+@media (max-width: 768px) {
+    /* Navbar Mobile Adjustments */
+    .nav-inner {
+        flex-direction: column; /* Stack logo and links */
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: wrap; /* Prevent links from pushing off screen */
+    }
+
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* Footer Adjustments */
+    .footer-inline-links {
+        gap: 20px;
+        flex-direction: column; /* Stack links for better tap targets */
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 1rem;
+    }
+    
+    .nav-logo {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .footer-credit {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-sep {
+        display: none; /* Hide separators on mobile for vertical layout */
+    }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+    about.html
+    - About / stats page: owner info and live sheet-powered stats.
+    - Uses `css/main.css` + `css/about.css` and `js/about.js`.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About • Movie Tracker</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/about.css" />
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand-link">
+                <div class="nav-brand">
+                    <div class="nav-logo">🎬</div>
+                    <span>Movie Tracker</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link nav-link-active">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-shell">
+        <section class="about-hero">
+            <div class="about-hero-inner">
+                <div class="about-hero-copy">
+                    <div class="about-hero-pill">
+                        <span class="about-hero-pill-dot"></span>
+                        About the collection
+                    </div>
+                    <h1>One place for all the movies I care about.</h1>
+                    <p>
+                        A personal space to keep track of everything I’ve watched across different film industries,
+                        with simple stats to see how my collection is growing over time.
+                    </p>
+
+                    <div class="about-hero-total">
+                        <span class="about-hero-total-value" id="totalMoviesCount" data-count="0">0</span>
+                        <span class="about-hero-total-label">Films</span>
+                        <span class="about-hero-total-sub">and counting</span>
+                        <span class="about-hero-updated" id="lastUpdated">Live snapshot</span>
+                    </div>
+                    <div class="about-hero-total">
+                        <span class="about-hero-total-value" id="totalWebSeriesCount" data-count="0">0</span>
+                        <span class="about-hero-total-label">Web series</span>
+                        <span class="about-hero-total-sub">and counting</span>
+                        <span class="about-hero-updated" id="webSeriesUpdated">Live snapshot</span>
+                    </div>
+
+                    <div class="about-hero-actions">
+                        <a class="about-btn-primary" href="#suggestions">Wanna share something ?</a>
+                        <a class="about-btn-secondary" href="index.html#homecards">Browse all movies</a>
+                    </div>
+                </div>
+
+                <!-- <div class="about-owner-card">
+                    <div class="about-owner-photo">
+                        <img src="assets/owner.jpeg" alt="Owner photo" />
+                    </div>
+                    <h2 class="about-owner-name">Laxman Sawant</h2>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-section-head">
+                <h2>Collection overview</h2>
+                <p>Animated counters for each industry in your collection.</p>
+            </div>
+
+            <div class="about-stats-grid" id="statsGrid">
+                <div id="categoryStatsMount" class="about-stat-mount"></div>
+            </div>
+        </section>
+
+        <section class="about-cta" aria-label="Share a suggestion" id="suggestions">
+            <div class="about-cta-inner">
+                <div class="about-cta-head">
+                    <h2>🎬 Got something to share?</h2>
+                    <p>If you think I should watch something, tell me here — or suggest improvements for this project.
+                    </p>
+                </div>
+
+                <div class="about-cta-options" role="tablist" aria-label="Choose what to share">
+                    <button class="about-cta-option" type="button" data-form="recommend"
+                        aria-controls="aboutCtaFormRecommend" aria-expanded="false">
+                        <span class="about-cta-option-title">Recommend me your favourite movie</span>
+                        <span class="about-cta-option-sub">Suggest a movie you think I’d enjoy watching.</span>
+                    </button>
+
+                    <button class="about-cta-option" type="button" data-form="improve"
+                        aria-controls="aboutCtaFormImprove" aria-expanded="false">
+                        <span class="about-cta-option-title">Suggest improvements for this project</span>
+                        <span class="about-cta-option-sub">Share your thoughts — what should I add next?</span>
+                    </button>
+                </div>
+
+                <div class="about-cta-forms">
+
+                    <!-- Recommend Form -->
+                    <div class="about-cta-form-wrap" id="aboutCtaFormRecommend" data-form-wrap="recommend"
+                        aria-hidden="true">
+
+                        <form class="about-cta-form" id="aboutRecommendForm" novalidate>
+                            <div class="about-cta-form-row">
+                                <label class="about-cta-label" for="recommendName">Name</label>
+                                <input class="about-cta-input" id="recommendName" name="name" type="text"
+                                    autocomplete="name" placeholder="Your name" required />
+                            </div>
+
+                            <div class="about-cta-form-row">
+                                <label class="about-cta-label" for="recommendMessage">
+                                    Movie recommendation
+                                </label>
+                                <textarea class="about-cta-textarea" id="recommendMessage" name="message" rows="4"
+                                    placeholder="What should I watch, and why?" required></textarea>
+                            </div>
+
+                            <div class="about-cta-form-actions">
+                                <button class="about-cta-submit" type="submit">
+                                    Send Recommendation
+                                </button>
+                                <div class="about-cta-status" role="status" aria-live="polite"></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Improve Form -->
+                    <div class="about-cta-form-wrap" id="aboutCtaFormImprove" data-form-wrap="improve"
+                        aria-hidden="true">
+
+                        <form class="about-cta-form" id="aboutImproveForm" novalidate>
+                            <div class="about-cta-form-row">
+                                <label class="about-cta-label" for="improveName">Name</label>
+                                <input class="about-cta-input" id="improveName" name="name" type="text"
+                                    autocomplete="name" placeholder="Your name" required />
+                            </div>
+
+                            <div class="about-cta-form-row">
+                                <label class="about-cta-label" for="improveMessage">
+                                    Project improvement suggestion
+                                </label>
+                                <textarea class="about-cta-textarea" id="improveMessage" name="message" rows="4"
+                                    placeholder="What should I improve or add next?" required></textarea>
+                            </div>
+
+                            <div class="about-cta-form-actions">
+                                <button class="about-cta-submit about-cta-submit-secondary" type="submit">
+                                    Send Suggestion
+                                </button>
+                                <div class="about-cta-status" role="status" aria-live="polite"></div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Template for category stat cards -->
+    <template id="aboutStatTemplate">
+        <article class="about-stat-card" data-key="">
+            <div class="about-stat-top">
+                <div class="about-stat-icon"></div>
+                <div class="about-stat-heading">
+                    <div class="about-stat-title"></div>
+                    <div class="about-stat-subtitle">Movies in this category</div>
+                </div>
+            </div>
+            <div class="about-stat-bottom">
+                <div class="about-stat-value" data-count="0">0</div>
+                <a class="about-stat-chip about-stat-open" href="#">Open</a>
+            </div>
+        </article>
+    </template>
+
+    <footer class="footer footer--about">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <!-- <div class="footer-kicker">🎬 About This Project</div> -->
+                    <div class="footer-note">
+                        Made with love for movies • This is a personal project and not affiliated with any studio or
+                        platform.
+                    </div>
+                    <nav class="footer-inline-links" aria-label="Social links">
+                        <a class="footer-inline-link" href="https://www.instagram.com/sawant_sidhu/" target="_blank"
+                            rel="noreferrer">Instagram</a>
+                        <a class="footer-inline-link" href="https://www.youtube.com/@laxmansawant19" target="_blank"
+                            rel="noreferrer">YouTube</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-credit">
+                <span>Made with ❤️ by Laxman Sawant</span>
+                <span class="footer-sep" aria-hidden="true">•</span>
+                <span data-footer-year></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/about.js"></script>
+</body>
+
+</html>

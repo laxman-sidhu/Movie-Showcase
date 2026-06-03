@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+    movies.html
+    - Category detail page: list of movies, filters, and modal details.
+    - Uses `css/main.css` + `css/movies.css` for layout and components.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/movies.css" />
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand-link">
+                <div class="nav-brand">
+                    <div class="nav-logo">🎬</div>
+                    <span>Movie Tracker</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="movies-header">
+        <div class="movies-header-inner">
+            <h1 id="pageTitle"></h1>
+            <p>Search, filter and explore every movie you’ve logged in this category.</p>
+        </div>
+    </header>
+
+
+    <div class="top-bar">
+        <input type="text" id="searchInput" placeholder="Search by movie name..." />
+        <select id="genreFilter">
+            <option value="all">All categories</option>
+        </select>
+    </div>
+
+
+    <div class="grid" id="movieGrid"></div>
+
+    <!-- Empty / error states -->
+    <p id="moviesEmptyMessage" class="grid-empty" hidden>No movies found.</p>
+    <p id="moviesErrorMessage" class="grid-error" hidden>Failed to load movies.</p>
+
+    <div class="modal" id="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- Templates for movie cards and modal -->
+    <template id="movieCardTemplate">
+        <div class="card">
+            <div class="poster">
+                <img class="card-poster-img" alt="">
+                <span class="card-poster-fallback"></span>
+            </div>
+            <div class="card-info">
+                <strong class="card-title"></strong><br />
+                <small class="card-year"></small>
+            </div>
+        </div>
+    </template>
+
+    <template id="movieModalTemplate">
+        <div class="movie-modal-inner">
+            <div class="movie-modal-poster">
+                <img class="movie-modal-img" alt="">
+                <div class="movie-modal-gradient"></div>
+                <div class="movie-modal-info">
+                    <h2 class="movie-modal-title"></h2>
+                    <div class="movie-modal-meta">
+                        <span class="movie-modal-year"></span>
+                        <span class="movie-modal-separator"> • </span>
+                        <span class="movie-modal-genre"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <footer class="footer">
+        Viewing your watched movies • Use search and categories to quickly find any title.
+    </footer>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+
+</html>
