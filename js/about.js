@@ -57,11 +57,21 @@ function makeCategoryCard({ key, name }) {
 
   const iconEl = card.querySelector(".about-stat-icon");
   const titleEl = card.querySelector(".about-stat-title");
-  const linkEl = card.querySelector(".about-stat-open");
 
   if (iconEl) iconEl.textContent = iconLetter;
   if (titleEl) titleEl.textContent = name || "";
-  if (linkEl) linkEl.href = `movies.html?category=${key}`;
+
+  // Whole card is clickable (and keyboard-activatable)
+  const url = `movies.html?category=${key}`;
+  card.addEventListener("click", () => {
+    window.location.href = url;
+  });
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      window.location.href = url;
+    }
+  });
 
   return card;
 }

@@ -122,6 +122,123 @@ html, body {
   box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
 }
 
+/* ==================================================
+   NAV DROPDOWN — "Categories" menu
+   ================================================== */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  background: none;
+  cursor: pointer;
+  /* inherits padding / radius / border from .nav-link */
+}
+
+.nav-dropdown.open .nav-dropdown-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-dropdown-caret {
+  font-size: 0.7rem;
+  line-height: 1;
+  opacity: 0.8;
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown.open .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 210px;
+  max-width: calc(100vw - 24px);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(15, 23, 42, 0.97);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 40;
+}
+
+/* Invisible bridge so hovering across the gap doesn't close the menu */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (hover: hover) {
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown:hover .nav-dropdown-caret {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 9px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.nav-dropdown-item-active {
+  background: rgba(102, 126, 234, 0.18);
+  color: var(--accent-purple);
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  margin: 6px 8px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
 /* Hero section and buttons moved to home.css (homepage-specific) */
 
 /* Section title and category grid/cards moved to home.css (homepage-specific) */

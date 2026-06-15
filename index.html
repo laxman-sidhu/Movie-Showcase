@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
     index.html
     - Home page: hero, category cards, and Top-10 carousel.
@@ -30,6 +30,23 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link nav-link-active">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                        <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="movies.html?category=hollywood" class="nav-dropdown-item" role="menuitem" data-category="hollywood">Hollywood</a>
+                        <a href="movies.html?category=bollywood" class="nav-dropdown-item" role="menuitem" data-category="bollywood">Bollywood</a>
+                        <a href="movies.html?category=tollywood" class="nav-dropdown-item" role="menuitem" data-category="tollywood">Tollywood</a>
+                        <a href="movies.html?category=other_lang" class="nav-dropdown-item" role="menuitem" data-category="other_lang">Other Languages</a>
+                        <a href="movies.html?category=web_series" class="nav-dropdown-item" role="menuitem" data-category="web_series">Web Series</a>
+                        <div class="nav-dropdown-divider" role="separator"></div>
+                        <a href="movies.html?category=must_watch" class="nav-dropdown-item" role="menuitem" data-category="must_watch">Must Watch</a>
+                        <a href="movies.html?category=watchlist" class="nav-dropdown-item" role="menuitem" data-category="watchlist">Watchlist</a>
+                        <a href="movies.html?category=recently_watched" class="nav-dropdown-item" role="menuitem" data-category="recently_watched">Recently Watched</a>
+                    </div>
+                </div>
                 <a href="about.html" class="nav-link">About</a>
             </div>
         </div>
@@ -180,6 +197,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/home.js"></script>
 
 </body>

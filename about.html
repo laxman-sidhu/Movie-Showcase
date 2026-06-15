@@ -25,6 +25,23 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                        <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="movies.html?category=hollywood" class="nav-dropdown-item" role="menuitem" data-category="hollywood">Hollywood</a>
+                        <a href="movies.html?category=bollywood" class="nav-dropdown-item" role="menuitem" data-category="bollywood">Bollywood</a>
+                        <a href="movies.html?category=tollywood" class="nav-dropdown-item" role="menuitem" data-category="tollywood">Tollywood</a>
+                        <a href="movies.html?category=other_lang" class="nav-dropdown-item" role="menuitem" data-category="other_lang">Other Languages</a>
+                        <a href="movies.html?category=web_series" class="nav-dropdown-item" role="menuitem" data-category="web_series">Web Series</a>
+                        <div class="nav-dropdown-divider" role="separator"></div>
+                        <a href="movies.html?category=must_watch" class="nav-dropdown-item" role="menuitem" data-category="must_watch">Must Watch</a>
+                        <a href="movies.html?category=watchlist" class="nav-dropdown-item" role="menuitem" data-category="watchlist">Watchlist</a>
+                        <a href="movies.html?category=recently_watched" class="nav-dropdown-item" role="menuitem" data-category="recently_watched">Recently Watched</a>
+                    </div>
+                </div>
                 <a href="about.html" class="nav-link nav-link-active">About</a>
             </div>
         </div>
@@ -44,6 +61,7 @@
                         with simple stats to see how my collection is growing over time.
                     </p>
 
+                    <div class="about-hero-totals">
                     <div class="about-hero-total">
                         <span class="about-hero-total-value" id="totalMoviesCount" data-count="0">0</span>
                         <span class="about-hero-total-label">Films</span>
@@ -55,6 +73,7 @@
                         <span class="about-hero-total-label">Web series</span>
                         <span class="about-hero-total-sub">and counting</span>
                         <span class="about-hero-updated" id="webSeriesUpdated">Live snapshot</span>
+                    </div>
                     </div>
 
                     <div class="about-hero-actions">
@@ -170,17 +189,15 @@
 
     <!-- Template for category stat cards -->
     <template id="aboutStatTemplate">
-        <article class="about-stat-card" data-key="">
+        <article class="about-stat-card" data-key="" role="link" tabindex="0">
             <div class="about-stat-top">
                 <div class="about-stat-icon"></div>
                 <div class="about-stat-heading">
                     <div class="about-stat-title"></div>
-                    <div class="about-stat-subtitle">Movies in this category</div>
                 </div>
             </div>
             <div class="about-stat-bottom">
                 <div class="about-stat-value" data-count="0">0</div>
-                <a class="about-stat-chip about-stat-open" href="#">Open</a>
             </div>
         </article>
     </template>
@@ -212,6 +229,7 @@
     </footer>
 
     <script src="js/config.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/about.js"></script>

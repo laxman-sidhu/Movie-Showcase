@@ -466,3 +466,13 @@
     font-size: 18px;
   }
 }
+/* ========================================
+   2 movie cards per row across phones
+   ======================================== */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+}
