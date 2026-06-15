@@ -86,47 +86,77 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
 
 
 // ========================================
-// Top 10 Favorites Carousel - Swiper
+// My Favourites Carousel — data from the dedicated "favourites" sheet tab.
+// Shows however many rows exist (not capped at 10), in the sheet's own order.
 // ========================================
-const swiper = new Swiper('.swiper', {
-  effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: 3,
-  spaceBetween: 20,
-  loop: true,
-  coverflowEffect: {
-    rotate: 8,
-    stretch: -20,
-    depth: 120,
-    modifier: 1.5,
-    slideShadows: false,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  breakpoints: {
-    // when window width is >= 1024px
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 24
+function buildSwiper(slideCount) {
+  // Looping needs a comfortable number of slides; turn it off for small sets.
+  const loop = slideCount >= 5;
+
+  return new Swiper('.swiper', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: loop,
+    coverflowEffect: {
+      rotate: 8,
+      stretch: -20,
+      depth: 120,
+      modifier: 1.5,
+      slideShadows: false,
     },
-    // tablets
-    768: {
-      slidesPerView: 1.4,
-      spaceBetween: 16
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-    // mobile
-    0: {
-      slidesPerView: 1.05,
-      spaceBetween: 8
-    }
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      1024: { slidesPerView: 3, spaceBetween: 24 },
+      768: { slidesPerView: 1.4, spaceBetween: 16 },
+      0: { slidesPerView: 1.05, spaceBetween: 8 },
+    },
+  });
+}
+
+function initFavouritesCarousel() {
+  const wrapper = document.querySelector('.swiper-wrapper');
+  const section = document.querySelector('.movie-section');
+  if (!wrapper || typeof BASE_URL === 'undefined' || typeof FAVOURITES_GID === 'undefined') {
+    return;
   }
-});
+
+  fetch(BASE_URL + FAVOURITES_GID)
+    .then(res => res.text())
+    .then(text => {
+      const favourites = (typeof parseMovies === 'function' ? parseMovies(text) : [])
+        .filter(m => m.poster); // a poster is required for a slide
+
+      if (!favourites.length) {
+        if (section) section.hidden = true; // nothing to show — hide the section
+        return;
+      }
+
+      wrapper.innerHTML = favourites
+        .map(m => {
+          const alt = (m.movie || 'Favourite').replace(/"/g, '&quot;');
+          const src = m.poster.replace(/"/g, '&quot;');
+          return `<div class="swiper-slide"><img src="${src}" alt="${alt}" loading="lazy"></div>`;
+        })
+        .join('');
+
+      buildSwiper(favourites.length);
+    })
+    .catch(err => {
+      console.error('Favourites carousel load error:', err);
+      if (section) section.hidden = true;
+    });
+}
+
+initFavouritesCarousel();
 
 

@@ -41,14 +41,8 @@ let allMovies = [];
 fetch(BASE_URL + sheet.gid)
   .then(res => res.text())
   .then(text => {
-    const rows = parseCSV(text);
-
-    allMovies = rows
-      .map(cols => {
-        const [movie, year, genre, poster] = cols;
-        return { movie, year, genre, poster };
-      })
-      .filter(m => m.movie);
+    // Header-aware parse (Name / Year / Genre / Poster Link)
+    allMovies = parseMovies(text);
 
     buildGenreFilter(allMovies);
     renderMovies(allMovies);

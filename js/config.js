@@ -7,6 +7,9 @@
 const BASE_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTmRjmVRvtzH7GpZo3y1kBrFS8Cl8EGjoBifVBPSzSFPfwizKNqXaW5PSTsK9t31bWydFoLAVkSVMyi/pub?output=csv&gid=";
 
+/** Separate "My Favourites" tab — powers the home page carousel. */
+const FAVOURITES_GID = "436693604";
+
 const SHEETS = {
   hollywood: { name: "Hollywood", gid: "0", row: "top", thumbnail: "https://i.cdn.newsbytesapp.com/images/l70420220408162006.jpeg" },
   bollywood: { name: "Bollywood", gid: "709264029", row: "top", thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2fmK1VUI7NVq_47_cl8bBovZ8Lg8LXlAYQ&s" },

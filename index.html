@@ -114,53 +114,23 @@
         </div>
     </template>
 
-    <!-- Top 10 Favorites Carousel Section -->
+    <!-- My Favourites Carousel Section (data from the favourites sheet tab) -->
     <section class="movie-section">
         <div class="content-wrapper">
             <div class="text-content">
-                <h1>My Top 10 Favorites of All Time</h1>
-                <p class="home-favs-text">A hand-picked list of films that have stayed with me long after the credits
-                    rolled.</p>
+                <h1>My most favourites</h1>
+                <p class="home-favs-text">A hand-picked collection of films that have stayed with me long after the
+                    credits rolled.</p>
                 <p class="home-favs-text">
-                    This mini gallery is a snapshot of those all-time favorites. I'll keep refining and updating it as I
+                    This little gallery is a living snapshot of my all-time favourites — I keep adding to it as I
                     discover more stories that deserve a permanent spot here.
                 </p>
             </div>
 
             <div class="swiper-container">
                 <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img
-                                src="https://m.media-amazon.com/images/M/MV5BMTkwOTQ4OTg0OV5BMl5BanBnXkFtZTgwMzQyOTM0OTE@._V1_.jpg"
-                                alt="Favorite 1"></div>
-                        <div class="swiper-slide"><img
-                                src="https://images.ottplay.com/posters/92fcbd92e0459c900207f1534dfdd440.jpg"
-                                alt="Favorite 2"></div>
-                        <div class="swiper-slide"><img
-                                src="https://image.tmdb.org/t/p/original/38Xr1JnV1ZcLQ55zmdSp6n475cZ.jpg"
-                                alt="Favorite 3"></div>
-                        <div class="swiper-slide"><img
-                                src="https://image.tmdb.org/t/p/original/nqJBaK9P732uq2JxRlq2bE25TkJ.jpg"
-                                alt="Favorite 4"></div>
-                        <div class="swiper-slide"><img
-                                src="https://m.media-amazon.com/images/M/MV5BY2JiM2NmZWMtNmRkYi00ZWY0LWEzMzktZjY2MWRjNzg4NTBlXkEyXkFqcGc@._V1_.jpg"
-                                alt="Favorite 5"></div>
-                        <div class="swiper-slide"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmMtlKJYWVL0DkCkxF2iXoXURbyXxgjQIkuQ&s"
-                                alt="Favorite 6"></div>
-                        <div class="swiper-slide"><img
-                                src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/6ceb8916723863.562b06d1df4c6.jpg"
-                                alt="Favorite 7"></div>
-                        <div class="swiper-slide"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPP16A0QPRdJzCZopxi9yVL-QKHgsu11b4Vg&s"
-                                alt="Favorite 8"></div>
-                        <div class="swiper-slide"><img
-                                src="https://m.media-amazon.com/images/M/MV5BNDAzNDEwNjktZmVmMy00NmQ2LWI2M2EtOWE2ZWI0ODRhMTExXkEyXkFqcGc@._V1_.jpg"
-                                alt="Favorite 9"></div>
-                        <div class="swiper-slide"><img
-                                src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/b5223929611747.55faffbc773c8.jpg"
-                                alt="Favorite 10"></div>
-                    </div>
+                    <!-- Slides are injected by home.js from the "My Favourites" sheet tab -->
+                    <div class="swiper-wrapper"></div>
                 </div>
 
                 <div class="controls-container">
@@ -197,6 +167,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/home.js"></script>
 
