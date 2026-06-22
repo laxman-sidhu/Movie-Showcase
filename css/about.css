@@ -534,7 +534,6 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 0%, rgba(120, 119, 198, 0.18), transparent 55%);
   pointer-events: none;
 }
 
