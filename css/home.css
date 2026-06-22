@@ -12,9 +12,9 @@
   position: relative;
   min-height: calc(100vh - 70px);
   width: 100%;
-  margin: 0 0 40px;
+  margin: 0 0 56px;
   padding: 60px 6vw 80px;
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 28px 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,24 +22,20 @@
   color: var(--text-primary);
   overflow: hidden;
   background-image:
-    linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 27, 75, 0.9)),
+    linear-gradient(180deg, rgba(10, 12, 18, 0.55) 0%, rgba(10, 12, 18, 0.82) 70%, rgba(10, 12, 18, 0.96) 100%),
     url("https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/9871033/Movies_end_of_year_2017.jpg?quality=90&strip=all&crop=0,9.8336063483858,100,80.332787303228");
   background-size: cover;
   background-position: center;
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-top: none;
+  box-shadow: var(--shadow-soft);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(circle at top, rgba(120, 119, 198, 0.3), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.1), transparent 50%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05), transparent 55%);
   pointer-events: none;
 }
 
@@ -74,15 +70,14 @@
   padding: 8px 16px;
   margin-bottom: 24px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent-gold);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-pill-dot {
@@ -109,7 +104,7 @@
 }
 
 .hero-title-accent {
-  background: linear-gradient(135deg, #fbbf24 0%, #a78bfa 50%, #667eea 100%);
+  background: linear-gradient(135deg, #a5a9ff 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,20 +132,18 @@
 
 .hero-btn-primary {
   position: relative;
-  padding: 14px 32px;
-  border-radius: 999px;
+  padding: 14px 30px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #0f172a;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  box-shadow: 
-    0 10px 30px rgba(251, 191, 36, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: var(--accent-gradient);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.55);
   transform: translateY(0);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
@@ -167,9 +160,7 @@
 
 .hero-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 20px 40px rgba(251, 191, 36, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.6);
 }
 
 .hero-btn-primary:hover::before {
@@ -181,10 +172,10 @@
 }
 
 .hero-btn-secondary {
-  padding: 14px 28px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
+  padding: 14px 26px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text-primary);
   cursor: pointer;
   font-size: 0.95rem;
@@ -192,8 +183,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  backdrop-filter: blur(20px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
   text-decoration: none;
 }
 
@@ -258,15 +249,15 @@
    ======================================== */
 
 .section-title {
-  margin: 0 auto 24px;
-  padding: 25px 25px;
-  font-size: 1rem;
+  margin: 0 auto 28px;
+  padding: 0 24px;
+  font-size: 0.8rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   font-weight: 700;
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 /* Base container (grid) */
@@ -292,15 +283,12 @@
 .category-card {
   position: relative;
   overflow: hidden;
-  background: var(--glass-bg);
-  border-radius: 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
   cursor: pointer;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 var(--glass-highlight);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s ease, box-shadow 0.28s ease;
   max-width: 320px;
   width: 100%;
   margin: 0 auto;
@@ -310,19 +298,16 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(120, 119, 198, 0.15), transparent 70%);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .category-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(120, 119, 198, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-pop);
 }
 
 .category-card:hover::before {
@@ -360,16 +345,16 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 14px 18px 16px;
-  background: rgba(15, 23, 42, 0.9);
+  padding: 16px 18px 18px;
+  background: var(--surface);
 }
 
 .category-meta h2 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 .category-subtitle {
@@ -386,7 +371,7 @@
 
 .category-divider {
   text-align: center;
-  margin: 5px 0 10px;
+  margin: 28px 0 18px;
   padding: 10px;
 }
 
@@ -398,9 +383,9 @@
 }
 
 .category-divider p {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 
@@ -454,22 +439,21 @@
 
 .text-content:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(100, 150, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 .text-content h1 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     margin: 0 0 24px 0;
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     position: relative;
     z-index: 1;
-    background: linear-gradient(135deg, #ffffff 0%, rgba(100, 150, 255, 0.8) 50%, #ffffff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #c7caff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 3s infinite;
 }
 
 @keyframes shimmer {
@@ -487,9 +471,9 @@
 .text-content h1::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 72px;
     height: 3px;
-    background: linear-gradient(90deg, rgba(100, 150, 255, 0.8) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
     margin-top: 16px;
     border-radius: 2px;
 }
@@ -559,7 +543,7 @@
 
 .swiper-slide-active {
     filter: blur(0) grayscale(0);
-    box-shadow: 0 0 50px rgba(100, 150, 255, 0.4);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
 }
 
 .swiper-slide img {
@@ -594,7 +578,7 @@
 }
 
 .swiper-slide-active {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
 }
 
 .controls-container {
@@ -622,35 +606,37 @@
 }
 
 .swiper-pagination-bullet-active {
-    background: #fff !important;
-    transform: scale(1.2);
+    background: var(--accent) !important;
+    transform: scale(1.25);
 }
 
 .swiper-button-prev, 
 .swiper-button-next {
     position: relative !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 42px !important;
+    height: 42px !important;
     margin-top: 0 !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
     border-radius: 50%;
-    transition: 0.3s;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .swiper-button-prev::after, 
 .swiper-button-next::after {
     font-size: 14px !important;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .swiper-button-prev:hover, 
 .swiper-button-next:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.20);
+    transform: scale(1.06);
 }
 
 /* ========================================
@@ -704,7 +690,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(120, 119, 198, 0.1), transparent 60%);
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 60%);
   pointer-events: none;
 }
 
@@ -879,3 +865,25 @@
 
 
 
+
+/* ==================================================
+   FULL-SCREEN HERO (home)
+   The hero fills the entire viewport height with the navbar
+   overlaid on top of it (navbar included in the 100% height),
+   instead of occupying only the space below the navbar.
+   Desktop/tablet only; the 100vh/0.8 compensates for the global
+   :root zoom so the hero fills the screen exactly. Mobile keeps
+   its existing content-driven height.
+   ================================================== */
+@media (min-width: 769px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .hero {
+    min-height: calc(100vh / 0.8);
+  }
+}

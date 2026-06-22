@@ -16,20 +16,18 @@ html {
 /* Hero Section - Cinematic Dark Theme */
 .about-hero {
   min-height: calc(100vh - 70px);
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 28px 28px;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   padding: 0 -1%;
 
-  /* Your theme background only */
   background:
-    radial-gradient(ellipse at top, rgba(120,119,198,0.4), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(255,119,198,0.2), transparent 50%),
-    linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, #0e1018 0%, #14161f 50%, #0a0c12 100%);
 
-  border: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--hairline);
   box-shadow: var(--shadow-soft);
 }
 
@@ -40,13 +38,11 @@ html {
   inset: 0;
 
   background:
-    /* Adjusted dark blend (matches your theme) */
     linear-gradient(to right,
-      rgba(30, 24, 50, 0.808) 35%,
-      rgba(15, 23, 42, 0.75) 55%,
-      rgba(23, 15, 42, 0.392) 70%,
-      rgba(15, 23, 42, 0.1) 85%,
-      rgba(15, 18, 42, 0.652) 100%
+      rgba(10, 12, 18, 0.92) 30%,
+      rgba(10, 12, 18, 0.70) 55%,
+      rgba(10, 12, 18, 0.35) 75%,
+      rgba(10, 12, 18, 0.55) 100%
     ),
     url("../assets/owner.jpg");
 
@@ -118,8 +114,7 @@ html {
   transform: translateY(-3px);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 0 24px rgba(120, 119, 198, 0.35);
+    0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .about-owner-photo:hover::before {
@@ -216,13 +211,11 @@ html {
   margin-bottom: 10px;
   margin-left: 20px;
   padding: 14px 18px;
-  border-radius: 16px;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-card);
   display: inline-flex;
   flex-direction: column;
   align-items: centre;
@@ -299,7 +292,7 @@ html {
 .about-btn-primary {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   border: none;
 }
 
@@ -316,7 +309,7 @@ html {
 
 .about-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
 }
 
 .about-btn-primary:hover::before {
@@ -382,8 +375,7 @@ html {
   border-radius: 16px;
   padding: 18px 20px;
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -398,16 +390,16 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at top left, rgba(120, 119, 198, 0.08), transparent 60%);
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 60%);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
 }
 
 .about-stat-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-pop);
 }
 
 .about-stat-card:hover::before {
@@ -435,7 +427,7 @@ html {
   font-weight: 700;
   font-size: 1rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
@@ -498,35 +490,33 @@ html {
   color: var(--accent-purple);
   padding: 6px 12px;
   border-radius: 8px;
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .about-stat-chip:hover {
-  background: rgba(167, 139, 250, 0.2);
-  border-color: rgba(167, 139, 250, 0.35);
-  color: #c4b5fd;
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
 }
 
 /* CTA Section (EmailJS forms) */
 .about-cta {
   margin-top: 64px;
-  /* background-color: #201d4bc2; */
-  padding: 100px;
+  padding: 72px 24px;
 }
 
 .about-cta-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 26px 24px;
-  border-radius: 20px;
-  background: rgba(15, 23, 42, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  padding: 28px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-card);
   position: relative;
 }
 
@@ -588,9 +578,9 @@ html {
 }
 
 .about-cta-option.is-active {
-  border-color: rgba(167, 139, 250, 0.35);
-  background: rgba(167, 139, 250, 0.08);
-  box-shadow: 0 10px 25px rgba(120, 119, 198, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.45);
 }
 
 .about-cta-option-title {
@@ -653,11 +643,12 @@ html {
 .about-cta-textarea {
   width: 100%;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--hairline);
+  background: var(--surface-2);
   color: var(--text-primary);
-  padding: 10px 12px;
+  padding: 11px 13px;
   font-size: 0.95rem;
+  font-family: inherit;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
@@ -669,9 +660,9 @@ html {
 
 .about-cta-input:focus,
 .about-cta-textarea:focus {
-  border-color: rgba(167, 139, 250, 0.45);
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.14);
-  background: rgba(15, 23, 42, 0.62);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 3px var(--ring);
+  background: var(--surface-3);
 }
 
 .about-cta-form-actions {
@@ -685,20 +676,20 @@ html {
 .about-cta-submit {
   border: none;
   cursor: pointer;
-  padding: 10px 16px;
+  padding: 11px 18px;
   border-radius: 12px;
   font-size: 0.9rem;
   font-weight: 700;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 10px 24px rgba(102, 126, 234, 0.25);
+  background: var(--accent-gradient);
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.55);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   flex-shrink: 0;
 }
 
 .about-cta-submit:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.6);
 }
 
 .about-cta-submit:disabled {
@@ -1032,5 +1023,24 @@ html {
 
   .about-stat-card {
     padding: 12px 11px;
+  }
+}
+
+/* ==================================================
+   FULL-SCREEN HERO (about)
+   Same as the home hero: the about hero fills the entire viewport
+   with the navbar overlaid on top. Desktop/tablet only; 100vh/0.8
+   compensates for the global :root zoom. Mobile is unchanged.
+   ================================================== */
+@media (min-width: 769px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .about-hero {
+    min-height: calc(100vh / 0.8);
   }
 }

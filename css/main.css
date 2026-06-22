@@ -5,38 +5,139 @@
   ================================================== */
 
 :root {
-  --bg-primary: #0b0f19;
-  --bg-secondary: #1e1b4b;
-  --glass-bg: rgba(255, 255, 255, 0.03);
+  /* Surfaces — deep, neutral, premium (less blue-purple than before) */
+  --bg-primary: #0a0c12;
+  --bg-secondary: #0e1018;
+  --surface: #14161f;
+  --surface-2: #191c27;
+  --surface-3: #20232f;
+
+  /* Kept names (now solid surfaces) so every existing consumer updates cleanly */
+  --glass-bg: #14161f;
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.15);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --accent-gold: #fbbf24;
-  --accent-purple: #a78bfa;
-  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --shadow-soft: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+  --hairline: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --text-primary: #f4f6fa;
+  --text-secondary: #aeb6c4;
+  --text-muted: #707a8a;
+
+  /* Accents — one calm indigo/violet, gold kept as a subtle secondary */
+  --accent: #7c83ff;
+  --accent-strong: #6366f1;
+  --accent-purple: #9aa0ff;
+  --accent-gold: #f3b94d;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --ring: rgba(255, 255, 255, 0.45);
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Shadows — softer, more realistic */
+  --shadow-soft: 0 24px 48px -20px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 8px 24px -12px rgba(0, 0, 0, 0.55);
+  --shadow-pop: 0 28px 64px -16px rgba(0, 0, 0, 0.7);
+}
+
+/* ==================================================
+   GLOBAL SCALE
+   Scales the whole UI down on desktop/tablet so that the
+   default 100% browser zoom matches the previous ~80% feel.
+   Mobile (<= 768px) keeps its natural, already-tuned size.
+   ================================================== */
+@media (min-width: 769px) {
+  :root {
+    zoom: 0.8;
+  }
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: 
-    radial-gradient(ellipse at top, rgba(120, 119, 198, 0.15), transparent 60%),
-    linear-gradient(180deg, #0f172a 0%, #1e1b4b 40%, #0f172a 100%);
-  /* background-attachment: fixed; */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background:
+    radial-gradient(1100px 560px at 50% -120px, rgba(255, 255, 255, 0.04), transparent 60%),
+    var(--bg-primary);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 html, body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+/* JS-driven visibility must always win over any styling */
+[hidden] {
+  display: none !important;
+}
+
+/* Headings: tighter, more confident */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Accessible focus ring across all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+  border-radius: 8px;
+}
+
+/* Refined selection + scrollbar */
+::selection {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+  background-clip: padding-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.12s !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* NAVBAR - Glass Dark */
@@ -45,10 +146,11 @@ html, body {
   position: sticky;
   top: 0;
   z-index: 30;
-  backdrop-filter: blur(20px);
-  background: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 12, 18, 0.72);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .nav-inner {
@@ -81,15 +183,15 @@ html, body {
 .nav-logo {
   width: 36px;
   height: 36px;
-  border-radius: 12px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--accent-gradient);
   color: white;
   font-size: 1.2rem;
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .nav-links {
@@ -116,10 +218,10 @@ html, body {
 }
 
 .nav-link-active {
-  background: rgba(102, 126, 234, 0.15);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--accent-purple);
-  border: 1px solid rgba(167, 139, 250, 0.3);
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: none;
 }
 
 /* ==================================================
@@ -229,7 +331,7 @@ html, body {
 }
 
 .nav-dropdown-item-active {
-  background: rgba(102, 126, 234, 0.18);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--accent-purple);
 }
 
@@ -246,13 +348,12 @@ html, body {
 /* FOOTER */
 
 .footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 40px;
-  padding: 26px 24px;
+  border-top: 1px solid var(--hairline);
+  margin-top: 64px;
+  padding: 32px 24px;
   font-size: 0.9rem;
   color: var(--text-muted);
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(10px);
+  background: var(--bg-secondary);
 }
 
 .footer-inner {
@@ -318,7 +419,7 @@ html, body {
   place-items: center;
   color: #fff;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.18);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
   font-size: 0.9rem;
 }
@@ -381,7 +482,7 @@ html, body {
   color: var(--text-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(167, 139, 250, 0.55);
+  text-decoration-color: rgba(255, 255, 255, 0.45);
 }
 
 @media (max-width: 900px) {
