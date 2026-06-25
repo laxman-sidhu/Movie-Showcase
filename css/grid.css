@@ -84,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
   color: var(--text-secondary);
   font-weight: 600;
   text-align: center;
@@ -162,9 +162,10 @@
 .modal-content {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1040px;
+  max-height: 92vh;
+  overflow-y: auto;
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-pop);
   background: var(--surface);
   border: 1px solid var(--hairline);
@@ -205,72 +206,65 @@
 
 .movie-modal-inner {
   position: relative;
-  background: linear-gradient(180deg, #0f172a 0%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-primary) 100%);
 }
 
 .movie-modal-poster {
   position: relative;
-  min-height: 400px;
-  max-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 32px 32px 16px;
+  background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
 }
 
 .movie-modal-poster::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2394a3b8' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.5;
+  background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.035), transparent 60%);
   pointer-events: none;
 }
 
 .movie-modal-poster img {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 60vh;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
 .movie-modal-gradient {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 70%;
-  background: linear-gradient(to top,
-      rgba(15, 23, 42, 1) 0%,
-      rgba(15, 23, 42, 0.8) 30%,
-      rgba(15, 23, 42, 0.4) 60%,
-      transparent 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .movie-modal-info {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 40px;
+  position: static;
+  padding: 24px 38px 36px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
   color: var(--text-primary);
-  z-index: 10;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-primary) 70%);
+  border-top: 1px solid var(--hairline);
 }
 
 .movie-modal-title {
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 800;
   margin: 0;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(135deg, #ffffff 0%, #b9bcff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .movie-modal-meta {
@@ -317,7 +311,11 @@
   }
 
   .movie-modal-poster {
-    min-height: 350px;
+    padding: 22px 22px 12px;
+  }
+
+  .movie-modal-poster img {
+    max-height: 56vh;
   }
 
   .movie-modal-title {
@@ -325,7 +323,7 @@
   }
 
   .movie-modal-info {
-    padding: 30px 20px;
+    padding: 22px 24px 30px;
   }
 
   /* Ensure modal is readable on tablets */
@@ -374,7 +372,7 @@
     justify-content: flex-start;
     overflow-y: auto;
     margin: 0;
-    background: #0f172a; /* ensure modal content has solid background */
+    background: var(--bg-primary); /* solid neutral dark background */
     border-radius: 0; /* remove rounded corners on mobile */
     box-shadow: none;
     padding-top: 8vh;
@@ -385,7 +383,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background: #0f172a;
+    background: var(--bg-primary);
     width: 100%;
   }
 
@@ -397,7 +395,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 16px 16px 8px;
-    background: #0f172a;
+    background: var(--surface);
     width: 100%;
     flex: 0 0 auto;
     overflow: visible !important;
@@ -419,6 +417,7 @@
     object-fit: contain;
     margin: 0 auto;
     display: block;
+    border-radius: 10px;
   }
 
   /* Info sits below poster and flows naturally */
@@ -426,8 +425,8 @@
     position: static !important;
     inset: auto !important;
     padding: 18px 20px 28px;
-    background: #0f172a;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    background: var(--surface);
+    border-top: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
     gap: 10px;

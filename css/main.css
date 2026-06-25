@@ -271,7 +271,7 @@ textarea:focus-visible,
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background: rgba(15, 23, 42, 0.97);
+  background: rgba(20, 22, 31, 0.97);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   box-shadow:
